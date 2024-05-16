@@ -13,7 +13,7 @@ class comicsTableSeeder extends Seeder
      */
     public function run(): void
     {
-        $comics = config('comics');
+        $comics = config('comics.comics');
         // dd($comics);
         
         foreach ($comics as $comic) {

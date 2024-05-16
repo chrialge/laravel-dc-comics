@@ -29,8 +29,12 @@
                             <h6>HOME</h6>
                         </a>
                     </li>
-                    <li class="d-flex align-items-center">
-                        <a href="{{ route('comics.index') }}" class="text-decoration-none px-2">
+                    <li
+                        class="d-flex align-items-center
+                    {{ route('comics.index') === 'comics' ? 'border_active' : '' }}">
+                        <a href="{{ route('comics.index') }}"
+                            class="text-decoration-none px-2
+                     {{ route('comics.index') === 'comics' ? 'active' : 'text-dark' }}">
                             <h6>COMICS</h6>
                         </a>
                     </li>

@@ -29,22 +29,35 @@ class ComicController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());
-        $data = $request->all();
+        // $data = $request->all();
         // validate the user input
 
+        $val_data = $request->validate([
+            'title' => 'required|max:50',
+            'description' => 'nullable',
+            'thumb' => 'nullable|max:255',
+            'price' => 'nullable|numeric',
+            'series' => 'nullable| max:70',
+            'sale_date' => 'nullable|date',
+            'type' => 'nullable| max:15',
+
+        ]);
+
+        dd($val_data);
         //create the resource
 
         // option 1(extend)
-        $comic= new Comic();
-        $comic->title = $data['title'];
-        $comic->price = $data['price'];
-        $comic->series = $data['series'];
-        $comic->sale_date = $data['sale_date'];
-        $comic->type = $data['type'];
-        $comic->description = $data['description'];
-        $comic->save();
-
-
+        // $comic= new Comic();
+        // $comic->title = $data['title'];
+        // $comic->price = $data['price'];
+        // $comic->thumb = $data['thumb'];
+        // $comic->series = $data['series'];
+        // $comic->sale_date = $data['sale_date'];
+        // $comic->type = $data['type'];
+        // $comic->description = $data['description'];
+        // $comic->save();
+    
+        // Comic::create($val_data);
         //patter Post->redirect->GET
         return to_route('comics.index');
     }
@@ -62,7 +75,7 @@ class ComicController extends Controller
      */
     public function edit(Comic $comic)
     {
-        //
+        return view('comics.edit', compact('comic'));
     }
 
     /**
@@ -70,7 +83,9 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
-        //
+        // dd($request->all());
+        $comic->update($request->all());
+        return to_route('comics.show', $comic);
     }
 
     /**
@@ -78,6 +93,7 @@ class ComicController extends Controller
      */
     public function destroy(Comic $comic)
     {
-        //
+        $comic->delete();
+        return to_route('comics.index');
     }
 }

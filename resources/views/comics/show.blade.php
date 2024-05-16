@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container min-vh-100">
+    <div class="container min-vh-100 bg-white" style="position: relative; z-index: 5;">
         <div class="row">
             <div class="col">
                 <img src="{{ $comic->thumb }}" alt="">
