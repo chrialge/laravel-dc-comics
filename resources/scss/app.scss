@@ -1,1 +1,120 @@
+@use './partial/variable' as *;
 @import '~bootstrap/scss/bootstrap';
+
+// INDEX comic
+// utility Index comic
+.header-top{
+ background-color: $bg-primary;
+}
+.active{
+    color: $bg-primary;
+
+}
+.border_active{
+    border-bottom: 4px solid $bg-primary;
+    height: 95px;
+}
+.title-section{
+    position: relative;
+    bottom: 70px;
+}
+.search_border{
+    border-bottom: 3px solid $bg-primary;
+    > input::-webkit-input-placeholder{
+        text-align: end;
+    }
+}
+
+// end utility Index comic
+#jumbotron{
+    background-image: url('../img/jumbotron.jpg');
+    height: 600px;
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+}
+
+
+
+
+
+
+
+// utility text per footer
+.text_footer{
+    color: $text-footer;
+}
+// footer scss
+.footer_top{
+    background-image: url('../img/footer-bg.jpg');
+    height: 440px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    .logo_footer{
+        position: relative;
+
+        &>img{
+            position: absolute;
+            top: -120px;
+        }
+    }
+}
+
+.footer_bottom{
+    position: relative;
+    z-index: 5;
+    .sign_up > button{
+        border: 2px solid $bg-primary;
+    }
+
+    .social > h5{
+        color: $bg-primary;
+    }
+}
+
+// end INDEX comic
+// POST Comic
+
+// utility post
+.border_bottom{
+    border-bottom: 2px solid $border-color;
+}
+
+.banner{
+    position: relative;
+    z-index: 5;
+}
+.info, .banner{
+    background-color: $bg-comic-post;
+}
+.border_box_banner{
+    border: 2px solid $border-color;
+    background-color: rgb(161, 158, 158);
+}
+
+.text_info{
+    color: $text-info;
+}
+// endutility Post
+
+// segnaposto
+.thumb{
+    height: 80px;
+    background-color: $bg-primary;
+
+    .container> img{
+        bottom: 50%;
+    }
+}
+
+// avaiable of section description
+.info_comic{
+    background-color: $bg-banner-comic-post;
+
+    .text_available{
+        color: $text-banner-comic-post;
+    }
+}
+
+
