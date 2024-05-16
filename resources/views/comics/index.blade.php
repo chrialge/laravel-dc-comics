@@ -1,40 +1,35 @@
 <!-- estendo tutto il file di layout/app grzie ad una funzionalita di blade -->
 @extends('layouts.app')
 
-<!-- questo viene inserito nel main di layout/app.blade.php, precisamente dove ce @yeild('content') -->
+
 @section('content')
-    <!--Section jumbotron -->
-    <div class="container min-vh-100 bg-white" style="position: relative;z-index: 5;">
-        <div class="d-flex justify-content-between align-items-center py-4">
-            <h2>Comics</h2>
-            <a class="btn btn-primary" href="{{ route('comics.create') }}">
-                Add Comic
-            </a>
+    <div class="container bg-white">
+        <div class="d-flex justify-content-between align-items-center py-3">
+            <h2>Products</h2>
+            <a class="btn btn-primary" href="{{ route('comics.create') }}">Add</a>
         </div>
         <div class="table-responsive">
             <table class="table table-primary">
                 <thead>
                     <tr>
                         <th scope="col">ID</th>
-                        <th scope="col">title</th>
-                        <th scope="col">description</th>
-                        <th scope="col">thumb</th>
-                        <th scope="col">price</th>
-                        <th scope="col">series</th>
-                        <th scope="col">sale_date</th>
-                        <th scope="col">type</th>
-                        <th scope="col">action</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Thumb</th>
+                        <th scope="col">Series</th>
+                        <th scope="col">Sale date</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Action</th>
 
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($comics as $comic)
+                    @forelse ($comics as $comic)
                         <tr class="">
                             <td scope="row">{{ $comic->id }}</td>
                             <td>{{ $comic->title }}</td>
                             <td>{{ $comic->description }}</td>
                             <td><img width="60" src="{{ $comic->thumb }}" alt=""></td>
-                            <td>{{ $comic->price }}</td>
                             <td>{{ $comic->series }}</td>
                             <td>{{ $comic->sale_date }}</td>
                             <td>{{ $comic->type }}</td>
@@ -68,7 +63,7 @@
                                                         aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    🤪 Attention!! You are about to delete this record. The operation is
+                                                    Attention!! You are about to delete this record. The operation is
                                                     DESCRUCTIVE!!
                                                 </div>
                                                 <div class="modal-footer">
@@ -91,23 +86,21 @@
                                 </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
                             </td>
+
                         </tr>
-                    @endforeach
+                    @empty
+
+                        <tr class="">
+                            <td scope="row" colspan="7">Nothing to show</td>
+                        </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>
+
         {{ $comics->links('pagination::bootstrap-5') }}
+
+        <div class="space bg-white" style="height:100px; position:relative; z-index:5;"></div>
     </div>
 @endsection
