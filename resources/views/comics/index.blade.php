@@ -4,7 +4,13 @@
 <!-- questo viene inserito nel main di layout/app.blade.php, precisamente dove ce @yeild('content') -->
 @section('content')
     <!--Section jumbotron -->
-    <div class="container min-vh-100">
+    <div class="container min-vh-100 bg-white" style="position: relative;z-index: 5;">
+        <div class="d-flex justify-content-between align-items-center py-4">
+            <h2>Comics</h2>
+            <a class="btn btn-primary" href="{{ route('comics.create') }}">
+                Add Comic
+            </a>
+        </div>
         <div class="table-responsive">
             <table class="table table-primary">
                 <thead>
@@ -48,6 +54,6 @@
                 </tbody>
             </table>
         </div>
-
+        {{ $comics->links('pagination::bootstrap-5') }}
     </div>
 @endsection

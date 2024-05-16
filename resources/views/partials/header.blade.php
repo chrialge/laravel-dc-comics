@@ -26,12 +26,12 @@
                         <a href="{{ route('home') }}"
                             class="text-decoration-none px-2 
                         {{ Route::currentRouteName() === 'home' ? 'active' : 'text-dark' }}">
-                            <h6>COMICS</h6>
+                            <h6>HOME</h6>
                         </a>
                     </li>
                     <li class="d-flex align-items-center">
-                        <a href="#" class="text-decoration-none px-2">
-                            <h6>MOVIES</h6>
+                        <a href="{{ route('comics.index') }}" class="text-decoration-none px-2">
+                            <h6>COMICS</h6>
                         </a>
                     </li>
                     <li class="d-flex align-items-center">
