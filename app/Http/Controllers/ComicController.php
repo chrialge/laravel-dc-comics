@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreComicRequest;
+use App\Http\Requests\UpdateComicRequest;
 use App\Models\Comic;
 use Illuminate\Http\Request;
 
@@ -26,36 +28,14 @@ class ComicController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreComicRequest $request)
     {
         // dd($request->all());
         // $data = $request->all();
         // validate the user input
 
-        $val_data = $request->validate([
-            'title' => 'required|max:10',
-            'description' => 'nullable',
-            'thumb' => 'nullable|max:255',
-            'price' => 'nullable|numeric',
-            'series' => 'nullable| max:70',
-            'sale_date' => 'nullable|date',
-            'type' => 'nullable| max:10',
+        $val_data = $request->validated();
 
-        ]);
-
-        // dd($val_data);
-        //create the resource
-
-        // option 1(extend)
-        // $comic= new Comic();
-        // $comic->title = $data['title'];
-        // $comic->price = $data['price'];
-        // $comic->thumb = $data['thumb'];
-        // $comic->series = $data['series'];
-        // $comic->sale_date = $data['sale_date'];
-        // $comic->type = $data['type'];
-        // $comic->description = $data['description'];
-        // $comic->save();
     
         Comic::create($val_data);
         //patter Post->redirect->GET
@@ -81,18 +61,10 @@ class ComicController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Comic $comic)
+    public function update(UpdateComicRequest $request, Comic $comic)
     {
-        $val_data = $request->validate([
-            'title' => 'required|max:10',
-            'description' => 'nullable',
-            'thumb' => 'nullable|max:255',
-            'price' => 'nullable|numeric',
-            'series' => 'nullable| max:70',
-            'sale_date' => 'nullable|date',
-            'type' => 'nullable| max:10',
-
-        ]);
+        $val_data = $request->validated();
+       
         // dd($request->all());
         $comic->update($val_data);
         return to_route('comics.show', $comic);
@@ -104,6 +76,6 @@ class ComicController extends Controller
     public function destroy(Comic $comic)
     {
         $comic->delete();
-        return to_route('comics.index');
+        return redirect()->back();
     }
 }
