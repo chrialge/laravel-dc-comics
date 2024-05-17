@@ -26,7 +26,7 @@
 }
 
 // end utility Index comic
-#jumbotron{
+.jumbotron_dc{
     background-image: url('../img/jumbotron.jpg');
     height: 600px;
     background-size: cover;
@@ -34,7 +34,12 @@
     background-repeat: no-repeat;
 }
 
-
+.background_admin{
+    width: 100%;
+    background-image: url('../img/jumbotron.jpg');
+    background-repeat: repeat-y;
+    background-size: cover;
+}
 
 
 

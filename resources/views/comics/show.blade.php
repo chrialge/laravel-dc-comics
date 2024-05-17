@@ -1,14 +1,23 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
-    <div class="container min-vh-100 bg-white" style="position: relative; z-index: 5;">
+    <div class="container bg-white py-5" style="height: 600px;">
         <div class="row">
-            <div class="col">
+            <div class="col d-flex justify-content-center">
                 <img src="{{ $comic->thumb }}" alt="">
             </div>
             <div class="col">
+                <div class="d-flex align-items-center justify-content-end gap-2">
+                    <a href="{{ route('comics.index') }}" class="btn btn-dark">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </a>
+
+                    <a class="btn btn-dark" href="{{ route('comics.edit', $comic) }}"> <i
+                            class="fas fa-pencil-alt fa-sm fa-fw"></i>
+                    </a>
+                </div>
                 <h2>{{ $comic->title }}</h2>
-                <p>{{ $comic->description }}</p>
+                <p> <strong>Description: </strong>{{ $comic->description }}</p>
                 <div class="metadata">
                     <strong>Series: </strong> {{ $comic->series }} <br>
                     <strong>Price: </strong> {{ $comic->price }} &euro; <br>

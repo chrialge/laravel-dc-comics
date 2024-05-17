@@ -1,9 +1,15 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 
 @section('content')
-    <div class="container">
-        <h1>Edit comic</h1>
+    <div class="container p-5 rounded-2" style="background-color: lightblue">
+        <div class="d-flex align-items-center justify-content-between">
+            <h1>Edit comic</h1>
+            <a href="{{ route('comics.index') }}" class="btn btn-dark">
+                <i class="fa-solid fa-arrow-left"></i>
+            </a>
+        </div>
+
         @include('partials.validator_error')
         <form action="{{ route('comics.update', $comic) }}" method="post">
             @csrf
@@ -11,8 +17,8 @@
             @method('PUT')
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
-                <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" id="title"
-                    aria-describedby="titleHelper" placeholder="Batman Vol.1: .."
+                <input type="text" class="form-control @error('title') is-invalid @enderror" name="title"
+                    id="title" aria-describedby="titleHelper" placeholder="Batman Vol.1: .."
                     value="{{ old('title', $comic->title) }}" />
                 <small id="titleHelper" class="form-text text-muted">Type a title for the current pasta</small>
 

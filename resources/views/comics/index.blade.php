@@ -1,9 +1,9 @@
 <!-- estendo tutto il file di layout/app grzie ad una funzionalita di blade -->
-@extends('layouts.app')
+@extends('layouts.admin')
 
 
 @section('content')
-    <div class="container bg-white">
+    <div class="container">
         <div class="d-flex justify-content-between align-items-center py-3">
             <h2>Products</h2>
             <a class="btn btn-primary" href="{{ route('comics.create') }}">Add</a>
@@ -101,6 +101,6 @@
 
         {{ $comics->links('pagination::bootstrap-5') }}
 
-        <div class="space bg-white" style="height:100px; position:relative; z-index:5;"></div>
+
     </div>
 @endsection

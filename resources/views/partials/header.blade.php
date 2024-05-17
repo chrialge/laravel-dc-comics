@@ -15,56 +15,84 @@
             </div>
             <div class="pages">
                 <ul class="list-unstyled d-flex h-100 align-items-center m-0">
-                    <li class="d-flex align-items-center">
-                        <a href="#" class="text-decoration-none px-2">
+                    <li
+                        class="d-flex align-items-center
+                {{ Route::currentRouteName() === 'guest.characters' ? 'border_active' : '' }}">
+                        <a href="{{ route('guest.characters') }}"
+                            class="text-decoration-none px-2
+                    {{ Route::currentRouteName() === 'guest.characters' ? 'active' : 'text-dark' }}">
                             <h6>CHARACTERS</h6>
                         </a>
                     </li>
                     <li
                         class="d-flex align-items-center
-                    {{ Route::currentRouteName() === 'home' ? 'border_active' : '' }}">
-                        <a href="{{ route('home') }}"
+                    {{ Route::currentRouteName() === 'posts.index' ? 'border_active' : '' }}">
+                        <a href="{{ route('posts.index') }}"
                             class="text-decoration-none px-2 
-                        {{ Route::currentRouteName() === 'home' ? 'active' : 'text-dark' }}">
+                        {{ Route::currentRouteName() === 'posts.index' ? 'active' : 'text-dark' }}">
                             <h6>HOME</h6>
                         </a>
                     </li>
                     <li
                         class="d-flex align-items-center
-                    {{ route('comics.index') === 'comics' ? 'border_active' : '' }}">
+                    {{ Route::currentRouteName() === 'comics.index' ? 'border_active' : '' }}">
                         <a href="{{ route('comics.index') }}"
                             class="text-decoration-none px-2
-                     {{ route('comics.index') === 'comics' ? 'active' : 'text-dark' }}">
+                     {{ Route::currentRouteName() === 'comics.index' ? 'active' : 'text-dark' }}">
                             <h6>COMICS</h6>
                         </a>
                     </li>
-                    <li class="d-flex align-items-center">
-                        <a href="#" class="text-decoration-none px-2">
+                    <li
+                        class="d-flex align-items-center
+                {{ Route::currentRouteName() === 'guest.tv' ? 'border_active' : '' }}">
+                        <a href="{{ route('guest.tv') }}"
+                            class="text-decoration-none px-2
+                    {{ Route::currentRouteName() === 'guest.tv' ? 'active' : 'text-dark' }}">
                             <h6>TV</h6>
                         </a>
                     </li>
-                    <li class="d-flex align-items-center">
-                        <a href="#" class="text-decoration-none px-2">
+                    <li
+                        class="d-flex align-items-center
+                {{ Route::currentRouteName() === 'guest.games' ? 'border_active' : '' }}">
+                        <a href="{{ route('guest.games') }}"
+                            class="text-decoration-none px-2
+                    {{ Route::currentRouteName() === 'guest.games' ? 'active' : 'text-dark' }}">
                             <h6>GAMES</h6>
                         </a>
                     </li>
-                    <li class="d-flex align-items-center">
-                        <a href="#" class="text-decoration-none px-2">
+                    <li
+                        class="d-flex align-items-center
+                {{ Route::currentRouteName() === 'guest.collectibles' ? 'border_active' : '' }}">
+                        <a href="{{ route('guest.collectibles') }}"
+                            class="text-decoration-none px-2
+                    {{ Route::currentRouteName() === 'guest.collectibles' ? 'active' : 'text-dark' }}">
                             <h6>COLLECTIBLES</h6>
                         </a>
                     </li>
-                    <li class="d-flex align-items-center">
-                        <a href="#" class="text-decoration-none px-2">
+                    <li
+                        class="d-flex align-items-center
+                {{ Route::currentRouteName() === 'guest.video' ? 'border_active' : '' }}">
+                        <a href="{{ route('guest.video') }}"
+                            class="text-decoration-none px-2
+                    {{ Route::currentRouteName() === 'guest.video' ? 'active' : 'text-dark' }}">
                             <h6>VIDEOS</h6>
                         </a>
                     </li>
-                    <li class="d-flex align-items-center">
-                        <a href="#" class="text-decoration-none px-2">
+                    <li
+                        class="d-flex align-items-center
+                {{ Route::currentRouteName() === 'guest.fans' ? 'border_active' : '' }}">
+                        <a href="{{ route('guest.fans') }}"
+                            class="text-decoration-none px-2
+                    {{ Route::currentRouteName() === 'guest.fans' ? 'active' : 'text-dark' }}">
                             <h6>FANS</h6>
                         </a>
                     </li>
-                    <li class="d-flex align-items-center">
-                        <a href="#" class="text-decoration-none px-2">
+                    <li
+                        class="d-flex align-items-center
+                {{ Route::currentRouteName() === 'guest.news' ? 'border_active' : '' }}">
+                        <a href="{{ route('guest.news') }}"
+                            class="text-decoration-none px-2
+                    {{ Route::currentRouteName() === 'guest.news' ? 'active' : 'text-dark' }}">
                             <h6>NEWS</h6>
                         </a>
                     </li>

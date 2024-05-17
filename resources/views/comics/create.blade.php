@@ -1,17 +1,24 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 
 @section('content')
-    <div class="container bg-white py-5" style="position: relative; z-index: 5;">
-        <h1>Add new comic</h1>
+    <div class="container p-5 rounded" style="background-color: lightblue">
+        <div class="d-flex align-items-center justify-content-between">
+            <h1>Add new comic</h1>
+            <a href="{{ route('comics.index') }}" class="btn btn-dark">
+                <i class="fa-solid fa-arrow-left"></i>
+            </a>
+        </div>
+
         @include('partials.validator_error')
         <form action="{{ route('comics.store') }}" method="post">
             @csrf
 
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
-                <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" id="title"
-                    aria-describedby="titleHelper" placeholder="Batman Vol.1: .." value="{{ old('title') }}" />
+                <input type="text" class="form-control @error('title') is-invalid @enderror" name="title"
+                    id="title" aria-describedby="titleHelper" placeholder="Batman Vol.1: .."
+                    value="{{ old('title') }}" />
                 <small id="titleHelper" class="form-text text-muted">Type a title for the current pasta</small>
 
                 @error('title')
@@ -55,7 +62,8 @@
             <div class="mb-3">
                 <label for="sale_date" class="form-label">Sale date</label>
                 <input type="text" class="form-control @error('sale_date') is-invalid @enderror" name="sale_date"
-                    id="sale_date" aria-describedby="saleDateHelper" placeholder="2020-10-20" value="{{ old('title') }}" />
+                    id="sale_date" aria-describedby="saleDateHelper" placeholder="2020-10-20"
+                    value="{{ old('title') }}" />
                 <small id="seriesHelper" class="form-text text-muted">Type a sale date for the current pasta</small>
 
                 @error('sale_date')
