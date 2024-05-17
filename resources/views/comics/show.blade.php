@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="container bg-white py-5" style="height: 600px;">
+    <div class="container bg-white py-5" style="min-height: 600px;">
         <div class="row">
             <div class="col d-flex justify-content-center">
                 <img src="{{ $comic->thumb }}" alt="">
@@ -15,6 +15,7 @@
                     <a class="btn btn-dark" href="{{ route('comics.edit', $comic) }}"> <i
                             class="fas fa-pencil-alt fa-sm fa-fw"></i>
                     </a>
+
                 </div>
                 <h2>{{ $comic->title }}</h2>
                 <p> <strong>Description: </strong>{{ $comic->description }}</p>
